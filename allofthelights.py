@@ -8,7 +8,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.OUT)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(20,GPIO.OUT)
-
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(26,GPIO.OUT)
 
 n=1
 
@@ -25,11 +26,20 @@ def red():
     GPIO.output(20,GPIO.HIGH)
     time.sleep(6)
     GPIO.output(20, GPIO.LOW)
+def yellow():
+    GPIO.output(26,GPIO.HIGH)
+    time.sleep(6)
+    GPIO.output(26, GPIO.LOW)
 def lightLoop(n):
     rando = random.randint(n-333, n+333)
-    if n >= rando:
+    if n <= rando:
         print(rando)
         red()
+        time.sleep(2)
+        lightLoop(n)
+    if n >= rando:
+        print(rando)
+        yellow()
         time.sleep(2)
         lightLoop(n)
     if n%2==0:
