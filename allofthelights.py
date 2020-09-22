@@ -7,6 +7,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(18,GPIO.OUT)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.OUT)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(20,GPIO.OUT)
 n=1
 
 
@@ -18,7 +20,13 @@ def green():
     GPIO.output(21,GPIO.HIGH)
     time.sleep(5)
     GPIO.output(21, GPIO.LOW)
+def red():
+    GPIO.output(20,GPIO.HIGH)
+    time.sleep(5)
+    GPIO.output(20, GPIO.LOW)
 def lightLoop(n):
+    if n%3==0&n%2==0:
+        red()
     if n%2==0:
         n+=1
         print(n)
@@ -39,6 +47,8 @@ def lightLoop(n):
         GPIO.output(18, GPIO.LOW)
         GPIO.setup(21,GPIO.OUT)
         GPIO.output(21, GPIO.LOW)
+        GPIO.setup(20,GPIO.OUT)
+        GPIO.output(20, GPIO.LOW)
         print('quitted')
         GPIO.cleanup()
 
