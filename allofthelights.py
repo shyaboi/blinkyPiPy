@@ -16,19 +16,19 @@ n=1
 
 def blue():
     GPIO.output(18,GPIO.HIGH)
-    time.sleep(.05)
+    time.sleep(.1)
     GPIO.output(18, GPIO.LOW)
 def green():
     GPIO.output(21,GPIO.HIGH)
-    time.sleep(.05)
+    time.sleep(.1)
     GPIO.output(21, GPIO.LOW)
 def red():
     GPIO.output(20,GPIO.HIGH)
-    time.sleep(.05)
+    time.sleep(.1)
     GPIO.output(20, GPIO.LOW)
 def yellow():
     GPIO.output(26,GPIO.HIGH)
-    time.sleep(.05)
+    time.sleep(.1)
     GPIO.output(26, GPIO.LOW)
 loopCounter = 0   
     
@@ -43,7 +43,7 @@ def lightLoop(n, loopCounter):
         GPIO.output(20,GPIO.HIGH)
         print(f"Final loop count: {loopCounter}")
         print('i dont play 0')
-        time.sleep(5)
+        time.sleep(6)
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(18,GPIO.OUT)
         GPIO.output(18, GPIO.LOW)
@@ -59,26 +59,26 @@ def lightLoop(n, loopCounter):
         red()
         n*rando
         print(f"red rando muli{rando}")
-        time.sleep(.001)
+        time.sleep(.00001)
         pass
     if n >= rando:
         print(f"yeller{rando}")
         yellow()
         n/-rando
         print(f"yellow rando divide{rando}")
-        time.sleep(.001)
+        time.sleep(.00001)
         pass
     if n%2==0:
         print(f"blue{n}")
         n+=1
         blue()
-        time.sleep(.001)
+        time.sleep(.00001)
         lightLoop(n, loopCounter)
     if n%3==0:
         green()
         print(f"green{n}")
         n-=1
-        time.sleep(.001)
+        time.sleep(.00001)
         lightLoop(n, loopCounter)
     else:
         n+=1
